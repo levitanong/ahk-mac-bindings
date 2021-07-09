@@ -23,6 +23,10 @@ global otherWindow := ""
         if WinExist("ahk_exe WindowsTerminal.exe") {
             WinActivate("ahk_exe WindowsTerminal.exe")
         } else {
+            ;; If this fails, chances are there's a problem with app execution aliases.
+            ;; Open windows settings, search of "app execution aliases",
+            ;; Then look for the entry with Windows Terminal. If it's off, turn it on.
+            ;; If it's on, turn it off and on again.
             Run("wt")
         }
     }
